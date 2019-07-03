@@ -3,5 +3,13 @@
     height: 50vh;
     margin-top: 1em;
     border-radius: 10px;
+    background-color:brown;
+    color: white;
+}
 
+.modal button {
+    padding: 1em;
+    border: none;
+    font-size: 1em;
+    background-color: white;
 }

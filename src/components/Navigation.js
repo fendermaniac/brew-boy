@@ -5,10 +5,8 @@ const Navigation = () => {
     return ( 
         <nav>
            <img src={logo} className="App-logo" alt="logo"/>
-           <ul className="nav-links">
-            <li>Recipes</li>
-            <li>Tools</li>
-            </ul> 
+            <a>Recipes</a> {' '}
+            <a>Tools</a>
         </nav>
      );
 }
