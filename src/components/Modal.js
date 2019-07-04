@@ -1,19 +1,37 @@
 import React from 'react';
 import './Modal.css';
 
-const Modal = ({visible, toggleModal}) => {
+const Modal = ({toggleRegistrationLogin, existingUser, toggleModal}) => {
     return ( 
     <dialog 
       open
       id="modal"
       className="modal"
-    //   style={{
-    //     transform: visible ? 'translateY(0vh)' : 'translateY(-100vh)',
-    //     opacity: visible ? '1' : '0'
-    // }}
-    >
-        <p>Register</p>
-        <button onClick={toggleModal}>Exit Modal</button>
+    > 
+    
+      {existingUser 
+        ? (<p>Existing User</p>)
+        : (<p>New User</p>)
+      }
+    <div>
+     <h2>Register</h2>
+     <form>
+       <div className="form-container">
+         <label for="email">Email</label>
+         <input name="email" placeholder="Enter Email"></input>
+         <br/>
+         <label for="password">Password</label>
+         <input name="password" placeholder="Enter Password"></input>
+         <br/>
+         <button onClick={toggleModal}>Sign Up</button> 
+         <p>Already have an account? <a href="#" onClick={toggleRegistrationLogin}> Login </a></p>
+       </div>
+     </form>
+    </div>
+    <div>
+
+    </div>
+        
       </dialog> 
     
     );

@@ -8,9 +8,9 @@ const Navigation = ({ toggleModal, loggedIn }) => {
         <img src={logo} className="App-logo" alt="logo" />
         <div>
             {loggedIn ? (<React.Fragment>
-                <a>Recipes</a> <a>Tools</a> <a onClick={toggleModal}>Logout</a>
+                <a href="#" >Recipes</a> <a href="#" >Tools</a> <a href="#"  onClick={toggleModal}>Logout</a>
             </React.Fragment>) : (<React.Fragment>
-                <a>Register</a> <a>Login</a>
+                <a href="#" >Register</a> <a href="#" onClick={toggleModal} >Login</a>
             </React.Fragment>)}
         </div>
     </nav>);
