@@ -1,3 +1,16 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+.navigation {
+    background: lightgoldenrodyellow;
+    padding: 1em;
+}
+
 .nav-links {
     display: inline;
     list-style: none;

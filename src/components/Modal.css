@@ -1,15 +1,23 @@
 .modal {
-    width: 25vw;
+    width: 50vw;
     height: 50vh;
     margin-top: 1em;
     border-radius: 10px;
-    background-color:brown;
-    color: white;
+    transition: 
+        transform .6s .1s,
+        opacity .7s;
+    border: none;
+}
+
+.is-modal-closed {
+    transform: translateY(-100vh);
+    opacity: 0;
 }
 
 .modal button {
     padding: 1em;
     border: none;
     font-size: 1em;
-    background-color: white;
+    background-color: lightblue;
+    border-radius: 5px;
 }

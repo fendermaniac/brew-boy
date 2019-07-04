@@ -9,22 +9,22 @@ class App extends Component {
     super();
 
     this.state = {
-        isVisible: true
+        isVisible: true,
+        loggedIn: false
     }
   }
   toggleModalHandler = () => {
+    const modalWrapper = document.getElementById('modal');
+    modalWrapper.classList.toggle('is-modal-closed')
     this.setState({
-        isVisible: !this.state.isVisible
+        isVisible: !this.state.isVisible,
+        loggedIn: !this.state.loggedIn
     });
   }
   render() {
     return (
       <div className="App">
-        <Navigation />
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          
-        </div>
+        <Navigation loggedIn={this.state.loggedIn} toggleModal={this.toggleModalHandler}/>
         <Modal visible={this.state.isVisible} toggleModal={this.toggleModalHandler} />
         <h2>Brew Boy</h2>
         <p className="App-intro">
