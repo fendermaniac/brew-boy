@@ -26,7 +26,6 @@ class App extends Component {
       <div className="App">
         <Navigation loggedIn={this.state.loggedIn} toggleModal={this.toggleModalHandler}/>
         <Modal visible={this.state.isVisible} toggleModal={this.toggleModalHandler} />
-        <h2>Brew Boy</h2>
         <p className="App-intro">
           Let's get brewing!
         </p>
