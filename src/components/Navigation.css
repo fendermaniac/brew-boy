@@ -12,6 +12,7 @@ nav {
 }
 
 .nav-links {
+    width: 175px;
     display: inline;
     list-style: none;
 }

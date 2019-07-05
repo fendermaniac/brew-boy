@@ -6,7 +6,7 @@ const Navigation = ({ toggleModal, loggedIn }) => {
     return (<nav className="navigation">
         <h1>Brew Boy</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <div>
+        <div className="nav-links">
             {loggedIn ? (<React.Fragment>
                 <a href="#" >Recipes</a> <a href="#" >Tools</a> <a href="#"  onClick={toggleModal}>Logout</a>
             </React.Fragment>) : (<React.Fragment>
