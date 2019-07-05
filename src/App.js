@@ -3,6 +3,7 @@ import logo from "./beer.svg";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Modal from "./components/Modal";
+import Home from "./components/Home";
 
 class App extends Component {
   constructor() {
@@ -42,7 +43,7 @@ class App extends Component {
           toggleRegistrationLogin={this.toggleRegistrationLogin}
           existingUser={this.state.existingUser}
         />
-        <p className="App-intro">Let's get brewing!</p>
+        {this.state.loggedIn ? <Home/>: ''}
       </div>
     );
   }
