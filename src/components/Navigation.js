@@ -1,19 +1,37 @@
 import React from "react";
 import "./Navigation.css";
 import logo from "../beer.svg";
+import { Link } from "react-router-dom";
 
 const Navigation = ({ toggleModal, loggedIn }) => {
-    return (<nav className="navigation">
-        <h1>Brew Boy</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="nav-links">
-            {loggedIn ? (<React.Fragment>
-                <a href="#" >Recipes</a> <a href="#" >Tools</a> <a href="#"  onClick={toggleModal}>Logout</a>
-            </React.Fragment>) : (<React.Fragment>
-                <a href="#" >Register</a> <a href="#" onClick={toggleModal} >Login</a>
-            </React.Fragment>)}
+  return (
+    <nav className="navigation">
+      <Link to="/">
+        <div className="hero">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1>Brew Boy</h1>
         </div>
-    </nav>);
+      </Link>
+
+      <div className="nav-links">
+        {loggedIn ? (
+          <React.Fragment>
+            <a href="#">Recipes</a> <a href="#">Tools</a>{" "}
+            <Link to="/" onClick={toggleModal}>
+              Logout
+            </Link>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <a href="#">Register</a>{" "}
+            <Link to="/home" onClick={toggleModal}>
+              Login
+            </Link>
+          </React.Fragment>
+        )}
+      </div>
+    </nav>
+  );
 };
 
 export default Navigation;

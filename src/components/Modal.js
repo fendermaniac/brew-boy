@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Modal.css';
 
 const Modal = ({toggleRegistrationLogin, existingUser, toggleModal}) => {
@@ -20,7 +21,7 @@ const Modal = ({toggleRegistrationLogin, existingUser, toggleModal}) => {
               <label for="password">Password</label>
               <input name="password" placeholder="Enter Password"></input>
               <br/>
-              <button onClick={toggleModal}>Login</button> 
+              <Link to="/home"><button onClick={toggleModal}>Login</button> </Link>
               <p>Don't have an account? <a href="#" onClick={toggleRegistrationLogin}> Register </a></p>
             </div>
           </form>
@@ -36,7 +37,7 @@ const Modal = ({toggleRegistrationLogin, existingUser, toggleModal}) => {
          <label for="password">Password</label>
          <input name="password" placeholder="Enter Password"></input>
          <br/>
-         <button onClick={toggleModal}>Sign Up</button> 
+         <Link to="/home"> <button onClick={toggleModal}>Sign Up</button> </Link>
          <p>Already have an account? <a href="#" onClick={toggleRegistrationLogin}> Login </a></p>
        </div>
      </form>

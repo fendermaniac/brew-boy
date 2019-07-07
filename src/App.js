@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import logo from "./beer.svg";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Modal from "./components/Modal";
 import Home from "./components/Home";
+import LoginPage from "./components/LoginPage";
 
 class App extends Component {
   constructor() {
@@ -15,7 +16,8 @@ class App extends Component {
       existingUser: false
     };
   }
-  toggleModalHandler = () => {
+  toggleModalHandler = (e) => {
+    // e.preventDefault();
     const modalWrapper = document.getElementById("modal");
     modalWrapper.classList.toggle("is-modal-closed");
     this.setState({
@@ -32,19 +34,29 @@ class App extends Component {
 
   render() {
     return (
+ <Router>
       <div className="App">
         <Navigation
           loggedIn={this.state.loggedIn}
           toggleModal={this.toggleModalHandler}
-        />
+        />          
         <Modal
           visible={this.state.isVisible}
           toggleModal={this.toggleModalHandler}
           toggleRegistrationLogin={this.toggleRegistrationLogin}
           existingUser={this.state.existingUser}
-        />
-        {this.state.loggedIn ? <Home/>: ''}
+        />    
+     
+      <Route exact path='/' component={LoginPage} />      
+      <Route 
+          path="/home" 
+          component={Home}
+          // render={() => {this.state.loggedIn ? <Home/>: ''} } 
+      />
+      
+        
       </div>
+      </Router>
     );
   }
 }
