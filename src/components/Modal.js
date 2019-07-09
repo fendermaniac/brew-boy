@@ -31,10 +31,10 @@ const Modal = ({toggleRegistrationLogin, existingUser, toggleModal}) => {
      <h2>Register</h2>
      <form>
        <div className="form-container">
-         <label for="email">Email</label>
+         <label htmlFor="email">Email</label>
          <input name="email" placeholder="Enter Email"></input>
          <br/>
-         <label for="password">Password</label>
+         <label htmlFor="password">Password</label>
          <input name="password" placeholder="Enter Password"></input>
          <br/>
          <Link to="/home"> <button onClick={toggleModal}>Sign Up</button> </Link>

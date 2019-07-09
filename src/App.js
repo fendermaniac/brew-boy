@@ -5,17 +5,29 @@ import Navigation from "./components/Navigation";
 import Modal from "./components/Modal";
 import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
+import Cards from './components/Cards';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      breweries: [],
+      currentBrewery: {},
       isVisible: true,
       loggedIn: false,
       existingUser: false
     };
   }
+
+  componentDidMount = () => {
+    fetch('https://api.openbrewerydb.org/breweries')
+      .then(res => res.json())
+      .then(data => this.setState({
+        breweries: data
+      }))
+  }
+
   toggleModalHandler = (e) => {
     // e.preventDefault();
     const modalWrapper = document.getElementById("modal");
@@ -50,8 +62,14 @@ class App extends Component {
       <Route exact path='/' component={LoginPage} />      
       <Route 
           path="/home" 
-          component={Home}
-          // render={() => {this.state.loggedIn ? <Home/>: ''} } 
+          render={(routeProps) => 
+            <Home 
+            {...routeProps} breweries={this.state.breweries}/>
+            }
+      />
+            <Route 
+          path="/recipes" 
+          component={Cards}
       />
       
         
