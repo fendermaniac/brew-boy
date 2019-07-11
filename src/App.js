@@ -16,7 +16,7 @@ class App extends Component {
       currentBrewery: {},
       isVisible: true,
       loggedIn: false,
-      existingUser: false
+      existingUser: false,
     };
   }
 
@@ -25,7 +25,11 @@ class App extends Component {
       .then(res => res.json())
       .then(data => this.setState({
         breweries: data
-      }))
+      }), () => {
+        this.setState({
+          loggedIn: localStorage.getItem('loggedIn')
+        })
+      })
   }
 
   toggleModalHandler = (e) => {
@@ -35,8 +39,12 @@ class App extends Component {
     this.setState({
       isVisible: !this.state.isVisible,
       loggedIn: !this.state.loggedIn
+    }, () => {
+      localStorage.setItem('loggedIn', this.state.loggedIn);
     });
+    
   };
+
 
   toggleRegistrationLogin = () => {
     this.setState({

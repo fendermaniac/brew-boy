@@ -1,17 +1,14 @@
 import React from "react";
 import "./Home.css";
+import Card from './Card';
 
 const Home = ({ breweries }) => {
   return (
     <div className="home-container">
       {breweries.map(brewery => {
-        return ( <div className="card" key={brewery.id}>
-          <h2>{brewery.name}</h2>
-          <address>{`${brewery.street}`}<br/>{`${brewery.city}, ${brewery.state}`}</address>
-          <div>
-          <iframe src={`http://maps.google.com/maps?q=${brewery.name}, ${brewery.street}, ${brewery.city}, ${brewery.state}&z=15&output=embed`} width="360" height="270" frameBorder="0"></iframe>
-          </div>
-        </div>)
+        return ( 
+        <Card id={brewery.id} name={brewery.name} street={brewery.street} city={brewery.city} state={brewery.state}/>
+        )
        
       })}
     </div>
